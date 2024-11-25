@@ -3,6 +3,7 @@ import ollama
 
 directory="uploads/"
 def read_image_and_get_movie_name(post_name):
+	print(post_name)
 	res = ollama.chat(
 		model="llava",
 		messages=[
