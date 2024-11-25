@@ -9,7 +9,7 @@ def read_image_and_get_movie_name(post_name):
 		messages=[
 			{
 				'role': 'user',
-				'content': 'Just give me the name of the movie in the poster i gave you. no jibber jabbar just the name of the poster if it is not poster then say NULL. no sentence just in the format in the format MOVIE_NAME (RELEASE_YEAR)',
+				'content': 'Just give me the name of the movie in the poster. NO SENTENCES just ONE PHRASE in the format in the format MOVIE_NAME (RELEASE_YEAR). Just the name of the poster if it is not poster then say NULL.',
 				'images': [directory + post_name]
 			}
 		]
