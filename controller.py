@@ -54,11 +54,22 @@ def get_trailer_url():
     movie_name = read_image_and_get_movie_name(name)
     if "NULL" not in movie_name:
         url = get_movie_trailer(movie_name)
-        return jsonify({'url': url}), 200
+        print(url)
+        movie_name = movie_name.strip()
+        return jsonify({'url': url, "movie_name":movie_name}), 200
     else:
         return jsonify({'error': 'Image doesn\'t seem to be of a movie poster'}), 200
 
-
+@app.route('/get-name', methods=['POST'])
+def get_movie_name():
+    data = request.json
+    name = data["image_name"]
+    movie_name = read_image_and_get_movie_name(name)
+    if "NULL" not in movie_name:
+        print(movie_name)
+        return jsonify({'movie_name': movie_name}), 200
+    else:
+        return jsonify({'error': 'Image doesn\'t seem to be of a movie poster'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True, port=8888, host="0.0.0.0")
